@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Overall Vision - Diorama Walkthrough</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #f4f4f4;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .container {
+            padding: 2rem;
+            display: flex;
+            margin: 0 auto;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h3 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        .quote-box {
+            border-left: 4px solid #222;
+            padding: 1rem;
+            background: #fafafa;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .nav {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #222;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            background: #444;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #horizontalPart {
+            display: flex;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        #verticalImages {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #rightNotes {
+            flex: 1;
+            padding: 2rem;
+            border-left: 2px solid #ddd;
+        }
+
+        #rightNotes h3 {
+            margin-top: 0;
+        }
+
+        #rightNotes ul {
+            padding-left: 1.2rem;
+        }
+
+        #imgContainer {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #horizontalPart img {
+            width: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Overall Vision</h1>
+    </header>
+
+    <div class="container">
+        <div id="horizontalPart">
+            <div id="verticalImages">
+                <div id="imgCoverContainer">
+                    <img src="womanwarrior.jpg" alt="">
+                    <img src="therethere.jpg" alt="">
+                    <img src="pianolesson.jpg" alt="">
+                </div>
+                <div id="objectImgContainer">
+                    <img src="woman.jpg" alt="">
+                    <img src="bullets.jpg" alt="">
+                    <img src="piano.jpg" alt="">
+                </div>
+            </div>
+
+            <div id="rightNotes">
+                <h3>Key Ideas</h3>
+                <p>Our goal with this project was to show how objects, not just ghosts, can link the past to the present
+                    and even future in a way that resembles haunting.</p>
+                <p>Whether it's through talk-story, cycles of violence, or a family heirloom, these objects all link the
+                    past to the present in some way.</p>
+                <p>Notably, in line with what Avery Gordon argued in her definition of haunting, these objects serve as
+                    means to incite transformation in one or many. Talk-stories transform Maxine, bullets alter the
+                    lives of every Native at the powwow but specifically trasnformed Tony, and the Piano transformed
+                    both Berniece and Boy Willie.</p>
+            </div>
+        </div>
+
+
+        <div class="nav">
+            <a href="index.html?skipIntro">← Back to Exhibit</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

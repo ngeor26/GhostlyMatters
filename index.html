@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghostly Matters Diorama Walkthrough</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #cfcccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 2rem;
+            gap: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            font-size: 0.95rem;
+            margin-top: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #222;
+            color: white;
+            margin-top: auto;
+        }
+
+        #intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            flex-direction: column;
+        }
+
+        #startBtn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        #startBtn:hover {
+            background: white;
+            color: black;
+        }
+
+        .ghost {
+            width: 300px;
+            position: absolute;
+            left: -300px;
+            top: 50%;
+            opacity: 0;
+            transition: all linear;
+            pointer-events: none;
+        }
+
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .vision-button {
+            display: block;
+            margin-top: 1rem;
+            background: #222;
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            justify-content: center;
+        }
+
+        .vision-button:hover {
+            transform: scale(1.02);
+            background: #333;
+        }
+
+        .overall {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .overall h2 {
+            margin: 0;
+        }
+
+        .overall p {
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="intro">
+        <button id="startBtn">Enter the Exhibit</button>
+        <p style="color: white" id="warning">Audio Warning</p>
+        <img src="ghost.png" class="ghost" alt="ghost">
+        <audio id="ghostSound" src="ghost.mp3" preload="auto"></audio>
+    </div>
+
+    <header>
+        <h1>Diorama Museum Walkthrough</h1>
+        <p>Explore the meaning behind each part of our project</p>
+    </header>
+
+    <div class="container">
+        <h2>Main Exhibit</h2>
+
+        <div class="grid">
+
+            <a href="woman.html">
+                <div class="card">
+                    <img src="woman.jpg" alt="Woman Diorama">
+                    <div class="card-content">
+                        <h3>The Woman (The Woman Warrior)</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="bullets.html">
+                <div class="card">
+                    <img src="bullets.jpg" alt="Bullets Diorama">
+                    <div class="card-content">
+                        <h3>The Bullets (There There)</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="piano.html">
+                <div class="card">
+                    <img src="piano.jpg" alt="Piano Diorama">
+                    <div class="card-content">
+                        <h3>The Piano (The Piano Lesson)</h3>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <a href="overall.html" class="vision-button">
+            <div class="overall">
+                <div style="margin-top: 10px">
+                    <h2>Overall Vision</h2>
+                    <p>See how all three parts connect into one unified idea</p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+
+    <footer>
+        <p>English Honors Seminar: Ghostly Matters Final Project</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        const btn = document.getElementById("startBtn");
+        const ghost = document.querySelector(".ghost");
+        const intro = document.getElementById("intro");
+        const sound = document.getElementById("ghostSound");
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        if (urlParams.has("skipIntro")) {
+            intro.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        btn.addEventListener("click", () => {
+
+            btn.style.display = "none";
+            ghost.style.display = "block";
+            document.getElementById("warning").style.display = "none";
+
+            const startY = Math.random() * 60 + 20;
+            const endY = Math.random() * 40 + 30;
+            const duration = Math.random() * 2 + 3;
+
+            ghost.style.top = startY + "%";
+            ghost.style.left = "-300px";
+            ghost.style.opacity = 1;
+
+            ghost.style.transitionDuration = duration + "s";
+            ghost.style.left = "110%";
+            ghost.style.top = endY + "%";
+
+            sound.volume = 0.5;
+            sound.play();
+
+            setTimeout(() => {
+                intro.classList.add("fade-out");
+                document.body.style.overflow = "auto";
+            }, duration * 1000);
+        });
+    </script>
+
+</body>
+
+</html>
